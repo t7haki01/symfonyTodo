@@ -1,0 +1,24 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <a href="{{ path('todoList')}}"><-back</a>
+    </div>
+
+    This is single item view
+    <P>
+        here comes the item description: {{ itemData.description }}
+    </P>
+    <P>
+        here comes the item due date: {{ itemData.dueDate | date('d.m.y') }}
+    </P>
+    <P>
+        here comes the item completed: {{ itemData.isDone }}
+    </P>
+
+    <div>
+        {{ form_start(editForm) }}
+        {{ form_widget(editForm) }}
+        {{ form_end(editForm) }}
+    </div>
+{% endblock %}

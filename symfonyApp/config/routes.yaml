@@ -1,0 +1,54 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# Here comes the name of route, so it actually does not affect the code just for the developer
+# for example here is index and test
+
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+#not gonna use anymore so deleted
+# hello:
+#     path: /hello/{name}
+#     controller: App\Controller\HelloController::hello
+
+# test:
+#   path: /test
+#   controller: App\Controller\HelloController::test
+
+# twigdemo:
+#   path: /twig
+#   controller: App\Controller\HelloController::twig
+
+todoList:
+  path: /todolist
+  controller: App\Controller\TodoController::list
+
+viewTodoItem:
+  path: /todolist/item/{itemId}
+  controller: App\Controller\TodoController::viewItem
+
+deleteTodoItem:
+  path: /todolist/deleteItem/{itemId}
+  controller: App\Controller\TodoController::deleteItem
+  methods: [DELETE]
+
+completeTodoItem:
+  path: /todolist/completeItem/{itemId}
+  controller: App\Controller\TodoController::completeItem
+  methods: [POST]
+
+#this is teacher's solution
+
+toggleTodoItem:
+  path: /todolist/item/{itemId}/toggleIsDone
+  controller: App\Controller\TodoController::toggleItemIsDone
+  methods: [POST]
+
+#Here is added part
+  # login:
+  #   path: /login
+
+  # logout:
+  #   path: /logout

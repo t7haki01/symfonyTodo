@@ -1,0 +1,48 @@
+{%  extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/list.css') }}" rel="stylesheet" />
+    {# <script href="{{ asset('js/app.js') }}"/> #}
+{% endblock %}
+
+{% block body %}
+<h1>To Do List</h1>
+
+    <div>
+        {{ form_start(addNewItemForm) }}
+        {{ form_widget(addNewItemForm) }}
+        {{ form_end(addNewItemForm) }}
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%  for item in todoData %}
+            <tr class="{% if item.isDone %} isDone {% endif %}">
+                <td>{{ item.description }}
+                    {#{% if item.isDone %} isDone#}
+                    {#{% else %}  isNotDone#}
+                    {#{% endif %}#}
+                    </td>
+                <td>{{ item.dueDate|date('d.m.y') }}</td>
+                <td><a href="{{ path('viewTodoItem', {'itemId': item.id}) }}">Details</a>
+                    <button class="deleteButton" data-id="{{ item.id }}">DELETE</button>
+                    <button class="completeButton" data-id="{{ item.id }}">
+                        {% if item.isDone %} COMPLETE
+                        {% else %}  UNCOMPLETE
+                        {% endif %}
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
