@@ -2,7 +2,6 @@
 
 {% block stylesheets %}
     <link href="{{ asset('css/list.css') }}" rel="stylesheet" />
-    {# <script href="{{ asset('js/app.js') }}"/> #}
 {% endblock %}
 
 {% block body %}
@@ -27,9 +26,9 @@
                 {%  for item in todoData %}
             <tr class="{% if item.isDone %} isDone {% endif %}">
                 <td>{{ item.description }}
-                    {#{% if item.isDone %} isDone#}
-                    {#{% else %}  isNotDone#}
-                    {#{% endif %}#}
+                    {% if item.isDone %} isDone
+                    {% else %}  isNotDone
+                    {% endif %} 
                     </td>
                 <td>{{ item.dueDate|date('d.m.y') }}</td>
                 <td><a href="{{ path('viewTodoItem', {'itemId': item.id}) }}">Details</a>

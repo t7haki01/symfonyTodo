@@ -7,9 +7,9 @@ Here user will login to the system.
 
 {# from here about login system when i'm absent #}
 <div>
-    {# <form action="{{ path('login') }}" method="POST"> #}
-    Username: <input type="text" id="username" /><br>
-    Password: <input type="text" id="password" /><br>
+     <form action="{{ path('login') }}" method="POST">
+    Username: <input type="text" id="username" name="_username" /><br>
+    Password: <input type="text" id="password" name="_password" /><br>
 
     <button type="submit">Login</button>
     </form>

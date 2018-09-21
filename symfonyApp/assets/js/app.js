@@ -23,22 +23,15 @@ function deleteButtonClicked(event){
     axios.delete('/todolist/deleteItem/' + itemId)
     .then(response =>location.reload()/*console.log(response)*/);
 }
-
-
-let deleteButtons = document.querySelectorAll('.deleteButton');
-
-deleteButtons.forEach(button => button.addEventListener('click', deleteButtonClicked));
-
-
-
-function completeButtonClicked(event){
-    console.log(event);
-    const itemId = event.target.getAttribute('data-id');
-    console.log(itemId);
-    // send then http req
-    axios.post('/todolist/completeItem/' + itemId)
-        .then(response =>location.reload()/*console.log(response)*/);
-}
+// This was my answer for it
+// function completeButtonClicked(event){
+//     console.log(event);
+//     const itemId = event.target.getAttribute('data-id');
+//     console.log(itemId);
+//     // send then http req
+//     axios.post('/todolist/completeItem/' + itemId)
+//         .then(response =>location.reload()/*console.log(response)*/);
+// }
 
 
 let completeButtons = document.querySelectorAll('.completeButton');
@@ -56,6 +49,10 @@ function completeButtonClicked(event){
     axios.post('/todolist/item/' + itemId + '/toggleIsDone')
         .then(response =>location.reload()/*console.log(response)*/);
 }
+
+let deleteButtons = document.querySelectorAll('.deleteButton');
+
+deleteButtons.forEach(button => button.addEventListener('click', deleteButtonClicked));
 
 
 let isDoneButtons = document.querySelectorAll('.completeButton');

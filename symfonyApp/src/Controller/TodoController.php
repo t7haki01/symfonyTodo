@@ -62,8 +62,8 @@ class TodoController extends AbstractController
         */
 
 
-        $listData = $this->getDoctrine()->getRepository(Todo::class)->findAll();
-        // $listData = $this->getUser()->getTodoItems();
+//        $listData = $this->getDoctrine()->getRepository(Todo::class)->findAll();
+         $listData = $this->getUser()->getTodoItems();
         return $this->render('toDo/list.html.twig', array('todoData' => $listData,
                                                     'addNewItemForm' => $form->createView()));
     }

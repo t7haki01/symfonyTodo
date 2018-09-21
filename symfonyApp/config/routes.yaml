@@ -47,8 +47,8 @@ toggleTodoItem:
   methods: [POST]
 
 #Here is added part
-  # login:
-  #   path: /login
+login:
+  path: /login
 
-  # logout:
-  #   path: /logout
+logout:
+  path: /logout
